@@ -40,5 +40,5 @@ public class InquiryForm implements Serializable {
 		mail = null;
 		content = null;
 	}
-	//test commitのため　2回目
+	//test commitのため　3回目
 }

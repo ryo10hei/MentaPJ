@@ -63,4 +63,13 @@ public class RootController {
 		model.addAttribute("message", "お問い合わせを受け付けました。");
 		return "root/creat";
 	}
+	
+	@GetMapping("/read")
+	public String readForm(Model model) {
+
+		// RDBと連携できることを確認しておきます。
+		Iterable<CreatForm> creatList = creatRepository.findAll();
+		model.addAttribute("creatList", creatList);
+		return "root/read";
+	}
 }

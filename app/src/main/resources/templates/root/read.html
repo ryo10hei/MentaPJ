@@ -20,7 +20,7 @@
 				<div class="col span-12">
 					<div class="head">
 						<h1>
-							<a th:href="@{/}">テスト　Creat画面</a>
+							<a th:href="@{/}">PORTFOLIO</a>
 						</h1>
 					</div>
 				</div>
@@ -37,7 +37,8 @@
 						<div id="navi">
 							<ul>
 								<li><a th:href="@{/}">ホーム</a></li>
-								<li><a th:href="@{/creat}">お問い合わせ</a></li>
+								<li><a th:href="@{/form}">お問い合わせ</a></li>
+								<li><a th:href="@{/creat}">お問い合わせ2</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -55,7 +56,7 @@
 					<div class="col span-12">
 						<div class="breadcrumb">
 							<ul>
-								<li><a th:href="@{/}">ホーム</a> > お問い合わせ</li>
+								<li><a th:href="@{/}">ホーム</a> > 一覧</li>
 							</ul>
 						</div>
 
@@ -63,33 +64,12 @@
 							<h2 th:class="msg" th:text="${message}"></h2>
 						</th:block>
 
-						<h2 class="underline">フォーム</h2>
-						<form th:action="@{/creat}" th:object="${creatForm}"
-							method="post">
-							<p>
-								<label for="name">お名前</label> <input class="full-width"
-									type="text" id="name" name="name" maxlength="10"
-									th:field="*{name}"> <span
-									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-									th:class="msg"></span>
-							</p>
-							<p>
-								<label for="email">メールアドレス</label> <input class="full-width"
-									type="email" id="mail" name="mail" th:field="*{mail}"><span
-									th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"
-									th:class="msg"></span>
-							</p>
-							<p>
-								<label for="message">お問い合わせ内容</label>
-								<textarea class="full-width" id="content" name="content"
-									th:field="*{content}"></textarea>
-								<span th:if="${#fields.hasErrors('content')}"
-									th:errors="*{content}" th:class="msg"></span>
-							</p>
-							<p>
-								<input class="button" type="submit" value="送信">
-							</p>
-						</form>
+						<h2 class="underline">お問い合わせ2一覧</h2>
+						<table>
+							<tr><th></th><th>お問合せ2一覧</th><th></th><th></th></tr>
+							<tr th:each="creat : ${creatList}">
+							<td th:text="${creat}"></td>
+						</table>>
 					</div>
 				</div>
 			</div>

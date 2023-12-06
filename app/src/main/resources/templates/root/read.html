@@ -69,6 +69,14 @@
 							<tr><th></th><th>お問合せ2一覧</th><th></th><th></th></tr>
 							<tr th:each="creat : ${creatList}">
 							<td th:text="${creat}"></td>
+							<td><a th:href="@{/creat/update(id=${creat.id})}" class="btn btn-primary">編集</a></td>
+							<td>
+							<form th:action="@{/read}" method="post">
+							<input type="hidden" name="id" th:value="${creat.id}"/>
+							<input type="submit" value="削除"/>
+							</form>
+							</td>
+							</tr>>
 						</table>>
 					</div>
 				</div>

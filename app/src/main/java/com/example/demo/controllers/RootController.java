@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.models.CreatForm;
 import com.example.demo.models.InquiryForm;
@@ -70,6 +71,14 @@ public class RootController {
 		// RDBと連携できることを確認しておきます。
 		Iterable<CreatForm> creatList = creatRepository.findAll();
 		model.addAttribute("creatList", creatList);
+		return "root/read";
+	}
+	
+	@PostMapping("/read")
+	public String deleteForm(@RequestParam long id) {
+
+		// RDBと連携できることを確認しておきます。
+		creatRepository.deleteById(id);
 		return "root/read";
 	}
 }
